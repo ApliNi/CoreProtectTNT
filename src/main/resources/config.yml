@@ -3,7 +3,7 @@
 debug: false
 
 # 自定义分隔符
-delimiter: "-"
+delimiter: "@"
 
 # 由方块引起的爆炸 (例如: 床、重生锚) 的设置
 block-explosion:
@@ -32,33 +32,3 @@ fire:
   disable-unknown: false
   # 当火焰蔓延被阻止时, 发送给附近玩家的消息
   alert: "火焰蔓延被阻止了, 因为它来源不明"
-
-# 物品展示框日志记录的设置
-itemframe:
-  # 设置为 true 以启用物品展示框的破坏和交互 (放置/移除物品) 的日志记录
-  enable: true
-  # 如果为 true, 则当破坏物品展示框的原因未知时, 插件将阻止其破坏
-  disable-unknown: false
-  # 当物品展示框的破坏被阻止时, 发送给附近玩家的消息
-  alert: "物品展示框的破坏被阻止了, 因为它来源不明"
-  # 记录玩家放置物品展示框的时间
-  log-placement: true
-  # 记录玩家旋转展示框中物品的时间
-  log-rotation: true
-  # 记录玩家向展示框添加或从展示框移除物品的时间
-  log-content-change: true
-  # 记录活塞破坏物品展示框的时间
-  log-piston-destruction: true
-  # 记录水破坏物品展示框的时间
-  log-water-destruction: true
-  # 记录物品展示框因其所附着的方块被破坏而破损的时间
-  log-physics-destruction: true
-
-# 其他悬挂实体 (例如: 画) 的设置
-hanging:
-  # 设置为 true 以启用悬挂实体破坏的日志记录
-  enable: true
-  # 如果为 true, 则当破坏悬挂实体的原因未知时, 插件将阻止其破坏
-  disable-unknown: false
-  # 当悬挂实体的破坏被阻止时, 发送给附近玩家的消息
-  alert: "悬挂实体的破坏被阻止了, 因为它来源不明"

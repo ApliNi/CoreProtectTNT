@@ -83,9 +83,7 @@ public class Main extends JavaPlugin {
    private void registerListeners() {
       Bukkit.getPluginManager().registerEvents(new ExplosionListener(this), this);
       Bukkit.getPluginManager().registerEvents(new FireListener(this), this);
-      Bukkit.getPluginManager().registerEvents(new HangingListener(this), this);
       Bukkit.getPluginManager().registerEvents(new TrackingListener(this), this);
-      Bukkit.getPluginManager().registerEvents(new FrameListener(this), this);
    }
 
    public CoreProtectAPI getApi() {
