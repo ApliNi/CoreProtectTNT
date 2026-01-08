@@ -4,10 +4,5 @@ version: ${project.version}
 api-version: 1.21
 depend:
   - CoreProtect
-authors: [GhostChu, leir4iks, danikovdev]
+authors: [GhostChu, leir4iks, ApliNi, danikovdev]
 folia-supported: true
-commands:
-  cptnt:
-    description: CoreProtectTNT commands
-    permission: coreprotecttnt.command
-    aliases: [coreprotecttnt]

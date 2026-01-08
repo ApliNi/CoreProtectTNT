@@ -49,12 +49,6 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit</artifactId>
-            <version>3.1.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>com.github.Anon8281</groupId>
             <artifactId>UniversalScheduler</artifactId>
             <version>0.1.7</version>

@@ -11,6 +11,8 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 import java.util.Locale;
 
+import static com.leir4iks.coreprotecttnt.Main.delimiter;
+
 public class Util {
    private static final int MAX_CAUSE_LENGTH = 255;
 
@@ -29,7 +31,7 @@ public class Util {
          section = configuration.createSection(path);
          section.set("enable", true);
          section.set("disable-unknown", true);
-         section.set("alert", String.valueOf(ChatColor.RED) + "Failed to read translation, configuration section missing!");
+         section.set("alert", ChatColor.RED + "Failed to read translation, configuration section missing!");
       }
       return section;
    }
@@ -38,7 +40,7 @@ public class Util {
       StringBuilder newCause = new StringBuilder();
       newCause.append("#")
               .append(entity.getType().name().toLowerCase(Locale.ROOT))
-              .append("-")
+              .append(delimiter)
               .append(previousCause);
 
       if (newCause.length() > MAX_CAUSE_LENGTH) {
@@ -52,7 +54,7 @@ public class Util {
       if (cause == null) {
          return null;
       }
-      int lastDash = cause.lastIndexOf('-');
+      int lastDash = cause.lastIndexOf(delimiter);
       if (lastDash != -1 && lastDash < cause.length() - 1) {
          return cause.substring(lastDash + 1);
       }

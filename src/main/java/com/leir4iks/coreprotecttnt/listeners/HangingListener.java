@@ -20,6 +20,8 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.logging.Logger;
 
+import static com.leir4iks.coreprotecttnt.Main.delimiter;
+
 public class HangingListener implements Listener {
     private final Main plugin;
     private final Logger logger;
@@ -59,7 +61,7 @@ public class HangingListener implements Listener {
             }
             return;
         }
-        String cause = "#" + e.getCause().name().toLowerCase(Locale.ROOT) + "-" + reason;
+        String cause = "#" + e.getCause().name().toLowerCase(Locale.ROOT) + delimiter + reason;
         logHangingRemoval(e.getEntity(), cause);
     }
 
@@ -106,7 +108,7 @@ public class HangingListener implements Listener {
                     }
                     String aggroCause = plugin.getEntityAggroCache().getIfPresent(r.getUniqueId());
                     if (aggroCause != null) {
-                        return "#" + r.getType().name().toLowerCase(Locale.ROOT) + "-" + aggroCause;
+                        return "#" + r.getType().name().toLowerCase(Locale.ROOT) + delimiter + aggroCause;
                     }
                     return "#" + r.getType().name().toLowerCase(Locale.ROOT);
                 })

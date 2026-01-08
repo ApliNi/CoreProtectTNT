@@ -7,13 +7,11 @@ import com.google.common.cache.CacheBuilder;
 import com.leir4iks.coreprotecttnt.listeners.*;
 import net.coreprotect.CoreProtect;
 import net.coreprotect.CoreProtectAPI;
-import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -28,6 +26,8 @@ public class Main extends JavaPlugin {
       }
    }
 
+   public static String delimiter = "-";
+
    private final Cache<BlockKey, String> blockPlaceCache = CacheBuilder.newBuilder()
            .expireAfterWrite(6, TimeUnit.HOURS).build();
    private final Cache<UUID, String> entityAggroCache = CacheBuilder.newBuilder()
@@ -38,12 +38,12 @@ public class Main extends JavaPlugin {
            .expireAfterWrite(2, TimeUnit.SECONDS).build();
 
    private CoreProtectAPI api;
-   private UpdateChecker updateChecker;
    private static TaskScheduler scheduler;
 
    @Override
    public void onEnable() {
       saveDefaultConfig();
+      delimiter = getConfig().getString("delimiter", "-");
       scheduler = UniversalScheduler.getScheduler(this);
 
       if (!setupCoreProtect()) {
@@ -51,11 +51,6 @@ public class Main extends JavaPlugin {
       }
 
       registerListeners();
-      this.updateChecker = new UpdateChecker(this);
-      updateChecker.check();
-      Objects.requireNonNull(getCommand("cptnt")).setExecutor(new UpdateCommand(updateChecker));
-
-      new Metrics(this, 26755);
 
       getLogger().info("CoreProtectTNT has been successfully enabled.");
    }

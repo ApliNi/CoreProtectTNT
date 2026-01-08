@@ -1,70 +1,64 @@
-# Enable this to see detailed plugin activity in the server console
-# Useful for debugging issues.
+# 启用此项可在服务器控制台查看详细的插件活动
+# 有助于调试问题
 debug: false
 
-# Settings for the automatic update checker.
-update-checker:
-  # If true, the plugin will check for new versions on startup.
-  enabled: true
-  # If true, new versions will be automatically downloaded to the 'update' folder
-  # The server needs to be restarted to apply the update
-  auto-download: true
+# 自定义分隔符
+delimiter: "-"
 
-# Settings for explosions caused by blocks (e.g., Beds, Respawn Anchors).
+# 由方块引起的爆炸 (例如: 床、重生锚) 的设置
 block-explosion:
-  # Set to true to enable logging of block-based explosions.
+  # 设置为 true 以启用基于方块的爆炸日志记录
   enable: true
-  # If true, the plugin will cancel explosions if it cannot determine the source (player/cause)
-  # This can prevent griefing with untrackable explosion sources.
+  # 如果为 true, 则当插件无法确定爆炸源 (玩家/原因) 时, 它将取消爆炸
+  # 这可以防止使用无法追踪的爆炸源进行破坏
   disable-unknown: false
-  # The message sent to nearby players when an unknown explosion is blocked.
-  alert: "&cAn explosion near you was blocked because its source is unknown."
+  # 当未知爆炸被阻止时, 发送给附近玩家的消息
+  alert: "你附近的一个爆炸被阻止了, 因为它来源不明"
 
-# Settings for explosions caused by entities (e.g, TNT, Creepers, Fireballs, Wind Charges)
+# 由实体引起的爆炸 (例如: TNT、苦力怕、火球、风弹) 的设置
 entity-explosion:
-  # Set to true to enable logging of entity-based explosions.
+  # 设置为 true 以启用基于实体的爆炸日志记录
   enable: true
-  # If true, the plugin will cancel explosions if it cannot determine the source.
+  # 如果为 true, 则当插件无法确定爆炸源时, 它将取消爆炸
   disable-unknown: false
-  # The message sent to nearby players when an unknown explosion is blocked.
-  alert: "&cAn explosion near you was blocked because its source is unknown."
+  # 当未知爆炸被阻止时, 发送给附近玩家的消息
+  alert: "你附近的一个爆炸被阻止了, 因为它来源不明"
 
-# Settings for fire spread logging.
+# 火焰蔓延日志记录的设置
 fire:
-  # Set to true to enable logging of blocks burned by fire.
+  # 设置为 true 以启用被火烧毁方块的日志记录
   enable: true
-  # If true, the plugin will stop fire from spreading if it cannot determine the original source.
+  # 如果为 true, 则当插件无法确定火焰的原始来源时, 它将阻止火焰蔓延
   disable-unknown: false
-  # The message sent to nearby players when fire spread is blocked.
-  alert: "&cThe spread of fire was blocked because its source is unknown."
+  # 当火焰蔓延被阻止时, 发送给附近玩家的消息
+  alert: "火焰蔓延被阻止了, 因为它来源不明"
 
-# Settings for Item Frame logging.
+# 物品展示框日志记录的设置
 itemframe:
-  # Set to true to enable logging of item frame destruction and interactions (placing/removing items).
+  # 设置为 true 以启用物品展示框的破坏和交互 (放置/移除物品) 的日志记录
   enable: true
-  # If true, the plugin will prevent the destruction of an item frame if the cause is unknown.
+  # 如果为 true, 则当破坏物品展示框的原因未知时, 插件将阻止其破坏
   disable-unknown: false
-  # The message sent to nearby players when an item frame destruction is blocked.
-  alert: "&cThe destruction of an item frame was blocked because its source is unknown."
-  # Log when a player places an item frame.
+  # 当物品展示框的破坏被阻止时, 发送给附近玩家的消息
+  alert: "物品展示框的破坏被阻止了, 因为它来源不明"
+  # 记录玩家放置物品展示框的时间
   log-placement: true
-  # Log when a player rotates an item in a frame
+  # 记录玩家旋转展示框中物品的时间
   log-rotation: true
-  # Log when a player adds or removes an item from a frame
+  # 记录玩家向展示框添加或从展示框移除物品的时间
   log-content-change: true
-  # Log when a piston breaks an item frame
+  # 记录活塞破坏物品展示框的时间
   log-piston-destruction: true
-  # Log when water breaks an item frame
+  # 记录水破坏物品展示框的时间
   log-water-destruction: true
-  # Log when an item frame is broken due to the block it was attached to being destroyed
+  # 记录物品展示框因其所附着的方块被破坏而破损的时间
   log-physics-destruction: true
 
-
-# Settings for other hanging entities (e.g., Paintings)
+# 其他悬挂实体 (例如: 画) 的设置
 hanging:
-  # Set to true to enable logging for the destruction of hanging entities.
+  # 设置为 true 以启用悬挂实体破坏的日志记录
   enable: true
-  # If true, the plugin will prevent the destruction of a hanging entity if the cause is unknown.
+  # 如果为 true, 则当破坏悬挂实体的原因未知时, 插件将阻止其破坏
   disable-unknown: false
-  # The message sent to nearby players when a hanging entity destruction is blocked.
-  alert: "&cThe destruction of a hanging entity was blocked because its source is unknown."
+  # 当悬挂实体的破坏被阻止时, 发送给附近玩家的消息
+  alert: "悬挂实体的破坏被阻止了, 因为它来源不明"

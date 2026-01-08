@@ -36,6 +36,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.logging.Logger;
 
+import static com.leir4iks.coreprotecttnt.Main.delimiter;
+
 public class ExplosionListener implements Listener {
     private final Main plugin;
     private final Logger logger;
@@ -97,7 +99,7 @@ public class ExplosionListener implements Listener {
         }
 
         if (cause != null) {
-            String reason = "#" + mob.getType().name().toLowerCase(Locale.ROOT) + "-" + cause;
+            String reason = "#" + mob.getType().name().toLowerCase(Locale.ROOT) + delimiter + cause;
 
             if (e.getTo() == Material.AIR) {
                 this.plugin.getApi().logRemoval(reason, e.getBlock().getLocation(), e.getBlock().getType(), e.getBlock().getBlockData());
@@ -203,7 +205,7 @@ public class ExplosionListener implements Listener {
         }
 
         String entityName = e.getEntityType().name().toLowerCase(Locale.ROOT);
-        String reason = "#" + entityName + "-" + Util.getRootCause(track);
+        String reason = "#" + entityName + delimiter + Util.getRootCause(track);
 
         if (isDebug) {
             logger.info("[Debug] Logging entity explosion removal caused by: " + reason + " (Full chain: " + track + ")");

@@ -22,6 +22,8 @@ import java.util.Locale;
 import java.util.UUID;
 import java.util.logging.Logger;
 
+import static com.leir4iks.coreprotecttnt.Main.delimiter;
+
 public class TrackingListener implements Listener {
     private final Main plugin;
     private final Logger logger;
@@ -105,20 +107,20 @@ public class TrackingListener implements Listener {
         String projectileName = projectile.getType().name().toLowerCase(Locale.ROOT);
 
         if (shooter instanceof Player player) {
-            finalCause = "#" + projectileName + "-" + player.getName();
+            finalCause = "#" + projectileName + delimiter + player.getName();
         } else if (shooter instanceof Mob mob) {
             String mobTypeName = mob.getType().name().toLowerCase(Locale.ROOT);
             String trackedAggressor = this.plugin.getEntityAggroCache().getIfPresent(mob.getUniqueId());
             if (trackedAggressor != null) {
-                finalCause = "#" + projectileName + "-" + mobTypeName + "-" + trackedAggressor;
+                finalCause = "#" + projectileName + delimiter + mobTypeName + delimiter + trackedAggressor;
             } else {
-                finalCause = "#" + projectileName + "-" + mobTypeName;
+                finalCause = "#" + projectileName + delimiter + mobTypeName;
             }
         } else if (shooter instanceof BlockProjectileSource bps) {
             Location loc = bps.getBlock().getLocation();
             String blockInitiator = this.plugin.getBlockPlaceCache().getIfPresent(Main.BlockKey.from(loc));
             if (blockInitiator != null) {
-                finalCause = "#" + projectileName + "-" + blockInitiator;
+                finalCause = "#" + projectileName + delimiter + blockInitiator;
             } else {
                 finalCause = "#dispenser@[" + loc.getBlockX() + "," + loc.getBlockY() + "," + loc.getBlockZ() + "]";
             }
